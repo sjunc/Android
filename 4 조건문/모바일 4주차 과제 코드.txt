@@ -1,0 +1,120 @@
+
+      /*
+       여기에 실행할 코드를 넣습니다.
+       */
+        var myNumbers = "1,2,3,4,5,6"
+        var thisWeekNumbes = "5, 6, 7, 8, 9, 10"
+        if (myNumbers == thisWeekNumbes){
+            Log.d("Lotto","당첨되셨습니다.")
+        }
+        var a = 30
+        var b = 19
+        var bigger = a > b
+        Log.d("비교연산자", "a는 b보다 큽니다.: $bigger")
+        var c = 37
+        var bIgger = a>b && a>c
+        Log.d("비교연산자", "a는 b보다 크고, c보다도 큽니다.: $bIgger")
+        var ball = 4
+        if (ball > 3){     //ball이 3보다 크면 여기 블록의 코드가 실행됨
+            Log.d("ControlFlow","4볼로 출루합니다.")
+        }else{           //그렇지 않으면 else 다음에 있는 블록의 코드가 실행됩니다.
+            Log.d("ControlFlow", "타석에서 다음 타구를 기다립니다.")
+        }
+
+
+
+
+3번
+ var a = 1
+        var b = 2
+        var c = 3
+
+// 1. if 문 두번 사용하기
+        if(a < b){
+            Log.d("ControlFlow", "1: a는 b보다 작습니다.")
+        }
+        if(a < c){
+                Log.d("ControlFlow","1: a는 c보다 작습니다.")
+            }
+
+        //2.else if 문 사용하기
+        if (a < b){
+            Log.d("ControlFlow", "2: a는 b보다 작습니다.")
+        }else if (a < c){
+            Log.d ("ControlFlow","2: a는 c보다 작습니다.")
+        }
+
+4번
+var a = 5
+        var b = 3
+        var bigger = if(a > b){
+            var c = 30
+            a// 마지막 줄의 a 값이 변수 bigger에 저장됩니다.
+        }else{
+            b
+}
+
+5번
+        var eraOfRyu = 2.32
+        var eraOfDegrom = 2.43
+
+        val era = if (eraOfRyu < eraOfDegrom){
+            Log.d("MLB_Result","2019 류현진이 디그롬을 이겼습니다.")
+            eraOfRyu
+        }else{
+            Log.d("MLB_Result", "2019 디그롬이 류현진을 이겼습니다.")
+            eraOfDegrom
+        }
+        Log.d("MLB_Result", "2019 MLB에서 가장 높은 ERA는 ${era}입니다.")
+
+6번
+  var now = 10
+        when(now){
+            8->{
+                Log.d("When", "현재 시간은 8시입니다.")
+            }
+            9->{
+                Log.d("When", "현재 시간은 9시입니다.")
+            }
+            else->{            //위의 조건이 맞지 않으면 else 다음 코드가 실행됩니다.
+                Log.d("When", "현재 시간은 9시가 아닙니다.")
+
+7번
+var now = 9
+        when(now){
+            8,9->{
+                Log.d("When", "현재 시간은 8시 또는 9시입니다.")
+            }
+            else->{
+                Log.d("When", "현재 시간은 9시가 아닙니다.")
+            }
+        }
+
+8번
+var ageOfMichael = 19
+        when (ageOfMichael){
+            in 10..19 ->{
+                Log.d("when", "마이클은 10대입니다.")
+            }
+            !in 10..19 ->{
+                Log.d("when", "마이클은 10대가 아닙니다.")
+            }
+            else ->{
+                Log.d("when", "마이클의 나이를 알 수가 없습니다.")
+            }
+        }
+
+9번
+ var currenTime = 6
+        when{
+           currenTime == 5 ->{
+                Log.d("When", "현재 시간은 5시입니다.")
+            }
+            currenTime > 5 ->{
+                Log.d("When", "현재 시간은 5시가 넘었습니다.")
+            }
+            else ->{
+                Log.d("When", "현재 시간은 5시 이전입니다.")
+            }
+        }
+

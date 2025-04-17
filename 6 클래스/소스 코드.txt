@@ -1,0 +1,126 @@
+17번 183p
+ // String 익스텐션을 테스트 합니다.
+        fun testStringExtension(){
+            var original = "Hello"
+            var added = " Guys~"
+            //plus 메서드를 사용해서 문자열을 더할 수 있습니다.
+            Log.d("Extension","added를 더한 값은 ${original.plus(added)}입니다.")
+        }
+
+        // 상속 연습
+        open class Parent{
+            var hello: String = "안녕하세요."
+            fun sayHello(){
+                Log.d("Extension", "${hello}")
+            }
+        }
+        class Child: Parent() {
+            fun myHello() {
+                hello = "Hello"
+                sayHello()
+            }
+        }
+
+        //메서드 오버라이드 연습
+        open class BaseClass{
+            open fun opened(){
+            }
+            fun notOpened(){
+            }
+        }
+        class ChildClass: BaseClass() {
+            override fun opened() {
+            }
+        }
+
+        // 프로퍼티 오버라이드 연습
+        open class BaseClass2 {
+            open var opened: String = "I am"
+        }
+        class ChildClass2: BaseClass2(){
+            override var opened: String = "You are"
+        }
+
+        fun String.plus(word: String): String{
+            return this + word
+        }
+        //1. 부모 클래스 직접 호출하기
+        var parent = Parent()
+        parent.sayHello()
+        //2. 자식 클래스 호출해서 사용하기
+        var child = Child()
+        child.myHello()
+
+        testStringExtension()
+    }
+}
+
+18번 193p
+        // 접근 제한자 테스트
+        var child = Child()
+        child.callVariables()
+
+        //부모 클래스 직접 호출해보기
+        var parent = Parent()
+        Log.d("Visibility", "Parent: 기본 제한자 defaultVal의 값은 ${parent.defaultVal}")
+        Log.d("visibility", "Parent: internalVal의 값은 ${parent.internalVal}")
+    }
+}
+
+
+
+// 추상 클래스 설계
+abstract class Animal{
+    fun walk() {
+        Log.d("abstract", "걷습니다.")
+    }
+    abstract fun move()
+}
+//구현
+class Bird: Animal(){
+    override fun move() {
+        Log.d("abstract", "날아서 이동합니다.")
+    }
+}
+// 인터페이스 설계
+interface InterfaceKotlin{
+    var variable: String
+    fun get()
+    fun set()
+}
+//구현
+class KotlinImpl: InterfaceKotlin{
+    override var variable: String = "init value"
+    override fun get() {
+        // 코드 구현
+    }
+
+    override fun set() {
+        //코드 구현
+    }
+}
+// 접근 제한자 테스트를 위한 부모 클래스
+open class Parent {
+    private val privateVal = 1
+    protected open val protectedVal = 2
+    internal val internalVal  = 3
+    val defaultVal = 4
+}
+// 자식 클래스
+class Child: Parent(){
+    fun callVariables(){
+        //privateVal은 호출이 안 됩니다.
+        Log.d("Visibility", "Child: protectedVal의 값은 ${protectedVal}")
+        Log.d("Visibility", "Child: internalVal의 값은 ${internalVal}")
+        Log.d("Visibility", "Child: defaultVal의 값은 ${defaultVal}")
+    }
+}
+
+
+
+
+배운점
+1. 잘 안되면 색부터 보자. 색이 안 들어오면 안된다는 뜻
+질문
+인터페이스나 추상abstract는 대충 왜 만드는것인가? 다른사람들과 작업할 때 남길려고
+입력하면 자동으로 나오는  TODO는 그냥 표시인가 아님 기능이 존재하는가.
